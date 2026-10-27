@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Enchain
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,5 +34,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Enchain-plugin
-          path: build/libs/*.jar
+          path: Enchain/build/libs/*.jar
           if-no-files-found: error
