@@ -1,0 +1,19 @@
+name: Enchain
+version: '${version}'
+main: com.thegildedking.enchain.EnchainPlugin
+api-version: '1.21'
+author: TheGildedKing
+description: Any item. Any enchant. No limits.
+
+commands:
+  enchain:
+    description: Enchain admin command
+    usage: /<command> <add|remove|book|list|reload>
+
+permissions:
+  enchain.anvil:
+    description: Use the Enchain anvil (any enchant on any item)
+    default: true
+  enchain.admin:
+    description: Use /enchain commands
+    default: op
