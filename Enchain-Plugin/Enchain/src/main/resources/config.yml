@@ -1,0 +1,61 @@
+# Enchain - any item, any enchant.
+
+anvil:
+  # Master switch for the any-enchant anvil.
+  enabled: true
+  # Let enchanted ITEMS (not just books) be the sacrifice in the right slot.
+  # Their enchants get moved onto the item in the left slot.
+  allow-item-transfer: true
+  # XP level cost added per enchant level applied.
+  cost-per-level: 2
+  # Raises the anvil "Too Expensive!" limit (vanilla is 40).
+  max-cost: 200
+
+levels:
+  # Two books/items with the same level combine into level + 1 (never above the vanilla max).
+  combine-same-level: true
+
+# /enchain start and /enchain loop
+# Each roll puts a random enchantment (random level, never above the vanilla max)
+# on whatever each player is holding.
+smp:
+  # Minutes until the first roll.
+  interval-minutes: 5
+  # Minutes between rolls after the first one, in /enchain loop.
+  loop-interval-minutes: 5
+  # true = everyone gets the same roll, false = each player rolls their own.
+  same-for-everyone: true
+  # Skip Curse of Binding / Curse of Vanishing.
+  exclude-curses: true
+  # If a player's hand is empty at roll time, give them an enchanted book instead.
+  empty-hand-gives-book: true
+
+# Makes enchants actually work on items they normally don't.
+emulation:
+  density:
+    # Density on ANY item = mace smash: bonus damage, ground slam shockwave, knockback and stun.
+    enabled: true
+    slam-radius: 3.5
+    # How long the slam stuns (slows) the target and anyone nearby, in ticks (20 = 1 second).
+    stun-ticks: 30
+  blast-protection:
+    # Blast Protection on throwables/arrows = explodes on hit,
+    # on tools = explodes the block you break, on weapons = explodes what you hit.
+    enabled: true
+    projectiles: true
+    tools: true
+    weapons: true
+    weapons-break-blocks: false
+    break-blocks: true
+    # The player who caused the blast takes no explosion damage.
+    protect-owner: true
+    max-power: 8.0
+  loyalty:
+    # Loyalty on ANY item: right-click to throw it (shift + right-click on blocks), it flies back.
+    # Sharpness, Fire Aspect, Knockback and Channeling apply to the thrown item.
+    enabled: true
+    throw-speed: 1.8
+    base-damage: 6.0
+    durability-loss: 1
+    cooldown-ms: 400
+    channeling-lightning: true
